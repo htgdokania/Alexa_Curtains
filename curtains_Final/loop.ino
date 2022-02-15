@@ -17,6 +17,11 @@ void loop()
         digitalWrite(stepPin,LOW); 
         delayMicroseconds(del); 
         pos+=1;
+        if(pos== maxPos){
+          // update current position in memory as well
+          EEPROM.put(0, pos);
+          EEPROM.commit();
+        }
       }
       //if  curtains are turned off , i.e instructed to open. final pos should be 0
       else
@@ -30,6 +35,11 @@ void loop()
         digitalWrite(stepPin,LOW); 
         delayMicroseconds(del); 
         pos-=1;
+        if(pos== 0){
+          // update current position in memory as well
+          EEPROM.put(0, pos);
+          EEPROM.commit();
+        }
       }
       count+=1;   
       

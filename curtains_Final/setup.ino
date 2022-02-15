@@ -1,6 +1,8 @@
 void setup()
 {
-    // Sets the two pins as Outputs
+  EEPROM.begin(4);
+  
+  // Sets the two pins as Outputs
   pinMode(stepPin,OUTPUT); 
   pinMode(dirPin,OUTPUT);
   pinMode(enablePin,OUTPUT);
@@ -14,5 +16,12 @@ void setup()
     espalexa.addDevice(Device_1_Name, curtainChanged); //simplest definition, default state off
     espalexa.begin();
   }
+
+  EEPROM.get(0,pos);
+
+  Serial.print("Current Pos:");
+  Serial.println (pos);
+
+  
 
 }

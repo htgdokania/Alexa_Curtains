@@ -5,6 +5,9 @@
 #endif
 #include <Espalexa.h>
 
+#include <EEPROM.h>
+
+
 boolean connectWifi();
 void  curtainChanged(uint8_t deviceState);
 const char* ssid = "SWATI";
@@ -15,11 +18,11 @@ Espalexa espalexa;
 
 
 //Default when device turns on curtains are assumed to be off i.e in open state   so initial pos=0 , max pos =8000
-int pos = 0;
 int maxPos=42 * 200 * 8;
 const int stepPin = D5; 
 const int dirPin = D6;
 const int enablePin =D7;
+int pos = 0;
 
 
 
